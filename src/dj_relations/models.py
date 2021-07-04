@@ -22,3 +22,11 @@ class Frameworks(models.Model):
 
     def __str__(self):
         return self.name
+
+class Programmer(models.Model):
+    framework = models.ManyToManyField(Frameworks, db_table="dd")
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return "{} {}".format(self.first_name, self.last_name)
