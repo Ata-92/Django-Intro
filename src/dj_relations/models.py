@@ -15,3 +15,10 @@ class Languages(models.Model):
 
     def __str__(self):
         return self.name
+
+class Frameworks(models.Model):
+    languages = models.ForeignKey(Languages, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
