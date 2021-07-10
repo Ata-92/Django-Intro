@@ -19,7 +19,14 @@ def student_num(request):
 
 def student_add(request):
     form = StudentForm()
+    html = 'Welcome'
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            html = "Student succesfully added"
+
     context = {
-        'form': form
+        'form': form,
+        'html': html
     }
     return render(request, 'fscohort/student_add.html', context)
