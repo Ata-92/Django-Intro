@@ -7,9 +7,16 @@
   <title>Student List</title>
 </head>
 <body>
-  <form action="" method="POST">
+  <!-- <form action="" method="POST">
     {{ form.as_p}}
     <button type="submit">Add</button>
+  </form> -->
+
+  <h2>{{ html }}</h2>
+  <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p}}
+      <button type="submit">Add</button>
   </form>
 </body>
 </html>
